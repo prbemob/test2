@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First HTML</title>
+  <meta charset="UTF-8">
+ 
+</head>
+<body>
+
+<p>The HTML head element contains meta data.</p>
+<p>Meta data is data about the HTML document.</p>
+
+  <p>
+     <a href="https://y8dq1.bemobtrk.com/click/1" class="btn btn-info">Canada</a>
+     
+     <a href="https://y8dq1.bemobtrk.com/click/2" class="btn btn-info">India</a>
+     
+     <a href="https://y8dq1.bemobtrk.com/click/3" class="btn btn-info">Russia</a>
+     
+     <a href="https://y8dq1.bemobtrk.com/click/3" class="btn btn-info">United States</a>
+    
+            </p>
+
+</body>
+</html>
