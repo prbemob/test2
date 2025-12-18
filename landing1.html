@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<?php
+define('LANDING_SECRET_KEY', 'OTUyYjY0OWEzMjA5OTQxYzA2ZWM2NDFkYzQwZmRlMWZkZGZiYjFmMA==');
+define('SIGNATURE_TTL', '1 minute');
+define('SIGNATURE_GET_PARAM', 'key');
+
+$signature = isset($_GET[SIGNATURE_GET_PARAM]) ? rawurldecode($_GET[SIGNATURE_GET_PARAM]) : exit('Access denied');
+if (!$signature = base64_decode($signature)) {
+    exit('Access denied');
+}
+if (!$signature = json_decode($signature, true)) {
+    exit('Access denied');
+}
+if (!isset($signature['timestamp']) || !isset($signature['hash'])) {
+    exit('Access denied');
+}
+$signedHash = hash_hmac('sha1', $signature['timestamp'], LANDING_SECRET_KEY);
+if ($signedHash !== $signature['hash'] || strtotime(SIGNATURE_TTL, $signature['timestamp']) < time()) {
+    exit('Access denied');
+}
+?><!DOCTYPE html>
 <html>
 <head>
   <title>My First HTML</title>
