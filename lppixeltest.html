@@ -1,44 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BeMob Simple Landing</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <title>BeMob Simple Landing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="text/javascript">
-function bemobCb(params) {
-    var t = params.trackingDomain+'/click/';
-    var re = new RegExp(t+'?(\\d*)');
-    var e = document.querySelectorAll('a[href*="'+t+'"]');
-    for (var i = 0; i < e.length; i++) {
-        var ex = re.exec(e[i].href);
-        if (ex) {
-            e[i].href = params.ctaSecureUrl.replace('%%OFFER_NUMBER%%', ex[1] || 1);
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <!-- Новый BeMob Pixel -->
+    <script type="text/javascript">
+    function bemobCb(params) {
+        var t = params.trackingDomain + '/click/';
+        var re = new RegExp(t + '?(\\d*)');
+        var e = document.querySelectorAll('a[href*="' + t + '"]');
+
+        for (var i = 0; i < e.length; i++) {
+            var ex = re.exec(e[i].href);
+            if (ex) {
+                e[i].href = params.ctaSecureUrl.replace(
+                    '%%OFFER_NUMBER%%',
+                    ex[1] || 1
+                );
+            }
         }
     }
-}
-</script>
-<script type="text/javascript">!function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="https://fb.xzert.site/landing/848db858-920f-48c7-9bb4-f3631018ad42?callback=bemobCb&rule=1&path=1&landing=1&"+window.location.search.substring(1);var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}();</script><noscript><img src="https://fb.xzert.site/landing/848db858-920f-48c7-9bb4-f3631018ad42?rule=1&path=1&landing=1" alt=""></noscript>
+    </script>
+
+    <script type="text/javascript">
+    !function(){
+        var a = document.createElement("script");
+        a.type = "text/javascript";
+        a.async = true;
+        a.src = "https://64neb.bemobtrcks.com/landing/6764040e-a380-4ff7-98ea-b23af9ba9228?callback=bemobCb&rule=1&path=1&landing=1&" 
+                + window.location.search.substring(1);
+
+        var b = document.getElementsByTagName("script")[0];
+        b.parentNode.insertBefore(a, b);
+    }();
+    </script>
+
+    <noscript>
+        <img src="https://64neb.bemobtrcks.com/landing/6764040e-a380-4ff7-98ea-b23af9ba9228?rule=1&path=1&landing=1" alt="">
+    </noscript>
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-<div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="#">BeMob Simple Landing</a>
-</div>
-  </div>
-    </nav>
-<div class="container theme-showcase" role="main">
-<div class="jumbotron">
-<h1>Hello</h1>
- <p>
-<a href="https://fb.xzert.site/click/1?ns=c%3D848db858-920f-48c7-9bb4-f3631018ad42..l%3D9cfbc8cb-38b9-43fb-a429-61192a3a23d3..a%3D0..b%3D0">Buy Now</a>
-</p>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">My Landing Page</a>
+            </div>
         </div>
+    </nav>
+
+    <div class="container text-center" style="margin-top:50px;">
+        <h1>Welcome to My Landing Page</h1>
+        <p>Choose one of the offers below:</p>
+
+        <!-- CTA Button 1 -->
+        <a href="https://64neb.bemobtrcks.com/click/1?ns=c%3D6764040e-a380-4ff7-98ea-b23af9ba9228..l%3D2..a%3D0..b%3D0"
+           class="btn btn-primary btn-lg">
+           Click me 1
+        </a>
+
+        <br><br>
+
+        <!-- CTA Button 2 -->
+        <a href="https://64neb.bemobtrcks.com/click/2?ns=c%3D6764040e-a380-4ff7-98ea-b23af9ba9228..l%3D2..a%3D0..b%3D0"
+           class="btn btn-success btn-lg">
+           Click me 2
+        </a>
+
+        <br><br>
+
+        <!-- CTA Button 3 -->
+        <a href="https://64neb.bemobtrcks.com/click/2?ns=c%3D6764040e-a380-4ff7-98ea-b23af9ba9228..l%3D2..a%3D0..b%3D0"
+           class="btn btn-danger btn-lg">
+           Click me 3
+        </a>
     </div>
+
 </body>
 </html>
